@@ -1,24 +1,40 @@
-# multivar_trees
+# Phylter Example Workflow
 
-Few lines of code (conda-wrapped) to compute the 2WR matrix as seen in PhyleR from a collection of trees with 1-1 matching tips.
+This repository contains a small workflow for analyzing phylogenomic datasets using **`phylter`**. It is designed for users familiar with Python, so no R knowledge is needed.
 
-# Install
-1. Install conda (Anaconda or Miniconda).
-2. clone this repo: `git clone` 
-3. go in the folder: `cd` 
-3. Create the environment:
-   `conda env create -f environment.yml`
-4. Activate:
-   `conda activate phylter-env`
+## Contents
 
-# Install phylter
----------------
-Inside the environment:
+- `GetMat.R` – The original R script that runs phylter.  
+- `GetMat.py` – Python wrapper that calls the R script.  
+- `example_input.tre` – Example input trees.  
+
+---
+
+## 1️⃣ Install the environment
+
+The workflow requires a Conda environment with `r-phylter` installed from Anaconda Cloud. Run:
+
 ```bash
-Rscript -e "install.packages('phylter', repos='https://cloud.r-project.org')" 
+conda create -n phylter-env -c yourusername r-phylter r-ape r-optparse
+conda activate phylter-env
 ```
 
-# Run
+- This will install all necessary R dependencies.
+
+---
+
+## 2️⃣ Run the workflow
+
+Use the Python wrapper (`GetMat.py`) to run the analysis:
+
+```bash
+python GetMat.py example_input.tre results.csv
 ```
-Rscript mytool.R yourfile.tre
-```
+
+- `example_input.tre` is your input file (replace with your own).  
+- `results.csv` is optional; if not provided, the output will be saved as `WR_output.csv`.  
+---
+
+## 5️⃣ Notes
+
+- Make sure the Conda environment `phylter-env` is **activated** before running the script.  
