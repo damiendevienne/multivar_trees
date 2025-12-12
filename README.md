@@ -1,4 +1,4 @@
-# Trees2Mat Distatis phylter-inspired small scrtipt
+# Trees2Mat? 
 
 This repository contains a small workflow for converting list of trees (1-1 tip matching) into a tips x genes matrix (as in Phylter workflow) based on the multuvariate method Distatis (Abdi 2005).
 
