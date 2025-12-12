@@ -1,31 +1,31 @@
 # Phylter Example Workflow
 
-This repository contains a small workflow for analyzing phylogenomic datasets using **`phylter`**. It is designed for users familiar with Python, so no R knowledge is needed.
+This repository contains a small workflow for converting list of trees (1-1 tip matching) into a tips x genes matrix (as in Phylter workflow) based on the multuvariate method Distatis (Abdi 2005).
 
 ## Contents
 
 - `GetMat.R` – The original R script that runs phylter.  
-- `GetMat.py` – Python wrapper that calls the R script.  
+- `GetMat.py` – Python wrapper that calls the R script. (for R haters ;-))  
 - `example_input.tre` – Example input trees.  
 
 ---
-
-## 1️⃣ Install the environment
-
-The workflow requires a Conda environment with `r-phylter` installed from Anaconda Cloud. Run:
+## Get it to work: 
+- clone this repo:
 
 ```bash
-conda create -n phylter-env -c yourusername r-phylter r-ape r-optparse
+git clone git@github.com:damiendevienne/multivar_trees.git
+```
+- `cd` to the `multivar_trees` directory
+```bash
+cd  multivar_trees/
+```
+- Create and activate a conda environment with r-phylter installed.
+
+```bash
+conda create -n phylter-env -c damiendevienne r-phylter
 conda activate phylter-env
 ```
-
-- This will install all necessary R dependencies.
-
----
-
-## 2️⃣ Run the workflow
-
-Use the Python wrapper (`GetMat.py`) to run the analysis:
+- Run the workflow using the Python wrapper (`GetMat.py`) to run the analysis:
 
 ```bash
 python GetMat.py example_input.tre results.csv
